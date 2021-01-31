@@ -1,0 +1,22 @@
+.profileDropDown span {
+    display: block;
+    cursor: pointer;
+    padding: 20px;
+    color: cornsilk;
+}
+
+.profileDropDown {
+    display: none;
+    position: absolute;
+    background-color: chartreuse;
+}
+
+.profileDropDown:hover {
+    font-size: 1.1rem;
+    transition: 0.3s;
+    color: darkblue;
+}
+
+.alt:hover {
+    color: darkblue;
+}

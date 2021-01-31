@@ -1,0 +1,9 @@
+.profilesImg {
+    width: 60px;
+    border-radius: 10%;
+}
+
+
+.profileWrapper:hover .profileDropDown {
+    display: block;
+}

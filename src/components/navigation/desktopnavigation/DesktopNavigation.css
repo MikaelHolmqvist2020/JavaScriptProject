@@ -6,4 +6,27 @@
 
 .navigationLogotype {
     width: 90px;
+    grid-column: 2/4;
+    padding: 2%;
+}
+
+.signInButton,
+.profile {
+    grid-column: 16/16;
+    cursor: pointer;
+    color: cornsilk;
+    font-weight: 1000;
+    font-family: 'Roboto', sans-serif;
+    padding: 10%;
+}
+
+.signInButton:hover {
+    font-size: 1.1rem;
+    transition: 0.3s;
+    color: darkblue;
+}
+
+.desktopNavigationTabs {
+    grid-column: 7/9;
+    align-items: center;
 }
