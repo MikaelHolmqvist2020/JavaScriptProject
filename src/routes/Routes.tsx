@@ -15,7 +15,7 @@ export const Routes = (props: { children: React.ReactChild }) => {
 
   useEffect(() => {
     setAuthUser({ username: localStorage.getItem('user') })
-  })
+  }, [])
   
   return (
     <BrowserRouter>

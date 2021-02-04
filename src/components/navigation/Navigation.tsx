@@ -5,7 +5,7 @@ import { DesktopNavigation } from './desktopnavigation/DesktopNavigation'
 import { useWindowDimensions } from '../../hooks/useWindowDimensions'
 
 export const Navigation = () => {
-  const { height, width } = useWindowDimensions()
+  const { width } = useWindowDimensions()
 
   const displayNavigationDependingOnDevice = () => {
     return (width <= 1000)

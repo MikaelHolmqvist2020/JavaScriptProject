@@ -4,14 +4,16 @@
     justify-content: space-around;
     height: 24px;
     width: 30px;
-    background: rgb(180, 178, 28);
+    background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
     box-sizing: border-box;
 }
+
 .toggle-button_line {
-    width: 30;
-    height: 2px;
-    background: black;
+    width: 30px;
+    height: 4px;
+    color: black;
+    background-color: black;
 }

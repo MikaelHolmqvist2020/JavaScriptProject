@@ -1,7 +1,7 @@
 .side-drawer {
     height: 100%;
     background-color: darkgray;
-    box-shadow: 1px 0px 7px ;
+    box-shadow: 1px 0px 7px rgba(0,0,0,0.5);
     position: fixed;
     top: 0;
     left: 0;
@@ -9,9 +9,19 @@
     max-width: 400px;
     z-index: 100;
     transform: translateX(-100%);
-    transition: 00.3s ease-in-out;
+    transition: 0.3s ease-in-out;
 
 }
 .side-drawer.open {
     transform:translateX(0)
+}
+
+.sidebarMenu span {
+    display: block;
+    justify-self: left;
+    min-width: 200px;
+    cursor: pointer;
+    
+    padding: 4px;
+    color: azure;
 }

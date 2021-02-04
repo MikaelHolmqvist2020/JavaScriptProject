@@ -12,12 +12,13 @@
 
 .signInButton,
 .profile {
-    grid-column: 16/16;
+    align-content: right;
+    grid-column: 19/19;
     cursor: pointer;
     color: cornsilk;
     font-weight: 1000;
     font-family: 'Roboto', sans-serif;
-    padding: 10%;
+    padding: 17px;
 }
 
 .signInButton:hover {
@@ -27,6 +28,6 @@
 }
 
 .desktopNavigationTabs {
-    grid-column: 7/9;
+    grid-column: 9/10;
     align-items: center;
 }
