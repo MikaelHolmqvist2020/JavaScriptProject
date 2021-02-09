@@ -5,6 +5,9 @@ const nyheterView = '/nyheter'
 const omView = '/om'
 const signInView = '/signin'
 
+/* Authenticated routes below */
+const settingsView = '/user/settings'
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   homeView,
@@ -12,5 +15,6 @@ export default {
   kontaktView,
   nyheterView,
   omView,
-  signInView
+  signInView,
+  settingsView
 }

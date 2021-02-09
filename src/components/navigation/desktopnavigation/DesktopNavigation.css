@@ -13,7 +13,7 @@
 .signInButton,
 .profile {
     align-content: right;
-    grid-column: 19/19;
+    grid-column: 18/19;
     cursor: pointer;
     color: cornsilk;
     font-weight: 1000;

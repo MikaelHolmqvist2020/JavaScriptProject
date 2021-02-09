@@ -1,3 +1,8 @@
+.closeMenu {
+    padding: 3%;
+    cursor: pointer;
+}
+
 .side-drawer {
     height: 100%;
     background-color: darkgray;
@@ -10,18 +15,22 @@
     z-index: 100;
     transform: translateX(-100%);
     transition: 0.3s ease-in-out;
-
 }
+
 .side-drawer.open {
     transform:translateX(0)
 }
+
 
 .sidebarMenu span {
     display: block;
     justify-self: left;
     min-width: 200px;
     cursor: pointer;
-    
-    padding: 4px;
+    padding: 5px;
     color: azure;
+}
+
+.sidebarLi {
+    padding: 910px;
 }

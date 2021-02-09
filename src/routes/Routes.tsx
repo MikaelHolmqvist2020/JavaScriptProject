@@ -6,15 +6,26 @@ import { NyheterView } from '../view/navigationtabsview/nyheter/NyheterView'
 import { OmView } from '../view/navigationtabsview/om/OmView'
 import RoutingPath from './RoutingPath'
 import { SignInView } from '../view/SignInView'
+import { SettingsView } from '../view/authenticatedview/SettingsView'
 import { UserContext } from '../shared/provider/UserProvider'
-import { useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 
 export const Routes = (props: { children: React.ReactChild }) => {
   const [authUser, setAuthUser] = useContext(UserContext)
   const { children } = props
 
+  const blockRouteIfAuthenticated = (allowedView : React.FC, notAllowedView: React.FC) => {
+    return !authUser ? allowedView : notAllowedView
+  }
+
+  const authenticationRequired = (allowed: React.FC, notallowed: React.FC) => {
+    return authUser ? allowed : notallowed
+  }
+
   useEffect(() => {
-    setAuthUser({ username: localStorage.getItem('user') })
+    if (localStorage.getItem('user')) {
+      setAuthUser({ username: localStorage.getItem('user') })
+    }
   }, [])
   
   return (
@@ -26,7 +37,8 @@ export const Routes = (props: { children: React.ReactChild }) => {
             <Route exact path={RoutingPath.kontaktView} component={KontaktView} />
             <Route exact path={RoutingPath.nyheterView} component={NyheterView} />
             <Route exact path={RoutingPath.omView} component={OmView} />
-            <Route exact path={RoutingPath.signInView} component={SignInView} />
+            <Route exact path={RoutingPath.signInView} component={blockRouteIfAuthenticated(SignInView, HomeView)} />
+            <Route exact path={RoutingPath.settingsView} component={authenticationRequired(SettingsView, SignInView)} />
             <Route component={HomeView} />
         </Switch>
     </BrowserRouter>

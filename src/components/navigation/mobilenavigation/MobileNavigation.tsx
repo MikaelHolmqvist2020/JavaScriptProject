@@ -5,7 +5,7 @@ import { BackDrop } from '../../backdrop/BackDrop'
 import { useState } from 'react'
 
 export const MobileNavigation = () => {
-  const [openDrawer, setOpenDrawer] = useState<boolean>(true)
+  const [openDrawer, setOpenDrawer] = useState<boolean>(false)
   
   return (
     <div>
