@@ -8,9 +8,9 @@ export const DesktopNavigationTabs = () => {
   return (
     <ul className='ulTabsWrapper'>
       <li className='liTabs' onClick={() => history.push(RoutingPath.homeView)}>Home</li>
-      <li className='liTabs' onClick={() => history.push(RoutingPath.butikView)}>Butik</li>
-      <li className='liTabs' onClick={() => history.push(RoutingPath.nyheterView)}>Nyheter</li>
-      <li className='liTabs' onClick={() => history.push(RoutingPath.kontaktView)}>Kontakt</li>
+      <li className='liTabs' onClick={() => history.push(RoutingPath.butikView)}>StarwarsAPI</li>
+      <li className='liTabs' onClick={() => history.push(RoutingPath.nyheterView)}>PokemonAPI</li>
+      <li className='liTabs' onClick={() => history.push(RoutingPath.kontaktView)}>PokemonKaraktärer</li>
       <li className='liTabs' onClick={() => history.push(RoutingPath.omView)}>Om</li>
     </ul>
   )

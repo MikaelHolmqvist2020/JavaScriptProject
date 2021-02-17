@@ -24,7 +24,7 @@ export const ButikView = () => {
 
   return (
     <div>
-      <h1>Detta är Butiken</h1>
+      <h1>Detta är StarwarsAPI:et</h1>
       <h1>Name:{starwarsData?.data?.name}</h1>
       <h1>Hair color:{starwarsData?.data?.hair_color}</h1>
       <h1>Gender:{starwarsData?.data?.birth_year}</h1>

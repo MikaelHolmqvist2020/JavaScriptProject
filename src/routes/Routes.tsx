@@ -7,8 +7,10 @@ import { OmView } from '../view/navigationtabsview/om/OmView'
 import RoutingPath from './RoutingPath'
 import { SignInView } from '../view/SignInView'
 import { SettingsView } from '../view/authenticatedview/SettingsView'
+import { ProfileView } from '../view/authenticatedview/ProfileView'
 import { UserContext } from '../shared/provider/UserProvider'
 import React, { useEffect, useContext } from 'react'
+import { PokemonDetailView } from '../view/PokemonDetailView'
 
 export const Routes = (props: { children: React.ReactChild }) => {
   const [authUser, setAuthUser] = useContext(UserContext)
@@ -39,6 +41,8 @@ export const Routes = (props: { children: React.ReactChild }) => {
             <Route exact path={RoutingPath.omView} component={OmView} />
             <Route exact path={RoutingPath.signInView} component={blockRouteIfAuthenticated(SignInView, HomeView)} />
             <Route exact path={RoutingPath.settingsView} component={authenticationRequired(SettingsView, SignInView)} />
+            <Route exact path={RoutingPath.profileView} component={authenticationRequired(ProfileView, SignInView)} />
+            <Route exact path={RoutingPath.pokemonDetailView()} component={PokemonDetailView} />
             <Route component={HomeView} />
         </Switch>
     </BrowserRouter>

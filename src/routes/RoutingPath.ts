@@ -7,6 +7,12 @@ const signInView = '/signin'
 
 /* Authenticated routes below */
 const settingsView = '/user/settings'
+const profileView = '/user/profile'
+
+/* Functions below */
+const pokemonDetailView = (name?: string) => { return name ? `/pokemon/${name}` : '/pokemon/:name' }
+
+
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -16,5 +22,7 @@ export default {
   nyheterView,
   omView,
   signInView,
-  settingsView
+  settingsView,
+  profileView,
+  pokemonDetailView
 }
