@@ -17,8 +17,9 @@ export const KontaktView = () => {
   })
   
   const displayData = () => {
+    const array = pokemon?.results?.sort((a: any, b: any) => a.name.localeCompare(b.name))
     return <div>
-      {pokemon.results?.map((x: any) =>
+      {array?.map((x: any) =>
         <div key={x.name}>
           <h1 onClick={() => history.push(RoutingPath.pokemonDetailView(x.name), x)}>{x.name}</h1>
         </div>
