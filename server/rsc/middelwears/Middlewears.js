@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 
 dotenv.config()
+const { ENVIROMENT } = process.env
 
 const notFound = (request, response, next) => {
 	const error = new Error(`Not found: ${request.originalUrl}`)
@@ -14,7 +15,7 @@ const errorHandeler = (error, request, response, next) => {
 	response.json({
 		statuscode: statuscode,
 		message: error.message,
-		stackTrace: process.env.ENVIROMENT === 'PRODUCTION' ? 'This Trace is BLOCKED in PRODUCTION ENVIROMENT!' : error.stack
+		stackTrace: ENVIROMENT === 'PRODUCTION' ? null : error.stack
 	})
 	next(error)
 }

@@ -8,6 +8,7 @@ import Configuration from './configurations/Configuration.js'
 import UserRoutes from './rsc/routes/User.routes.js'
 
 dotenv.config()
+
 const application = express()
 application.use(bodyParser.urlencoded({ extended: true }))
 application.use(bodyParser.json())

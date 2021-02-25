@@ -2,11 +2,11 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 
 dotenv.config()
+const { DATABASE_URL, PORT } = process.env
 
 const connectToDatabase = async () => {
 	try {
-		const DB_URL = process.env.DATABASE_URL
-		await mongoose.connect(DB_URL, { useNewUrlParser: true, useUndifinedTopology: true, useCreateIndex: true })
+		await mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useUndifinedTopology: true, useCreateIndex: true })
 		console.log('SUCCEFULLY CONNECTED TO THE DATABASE!')
 	} catch(error) {
 		console.log('ERROR WHILE TRYING TO CONNECT TO THE DATABASE: ', error)
@@ -15,9 +15,8 @@ const connectToDatabase = async () => {
 }
 
 const connectToPort = (application) => {
-	const port = process.env.PORT
-	application.listen(port, () => {
-		console.log(`Server är igång på port ' ${port}`)
+	application.listen(PORT, () => {
+		console.log(`Server är igång på port ' ${PORT}`)
 	})
 }
 
