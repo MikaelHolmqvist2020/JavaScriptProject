@@ -35,8 +35,23 @@ const getUserWithId = async (req, res) => {
 	}
 }
 
+const getUserWithUsernameQuery = async (req, res) => {
+	try {
+		const response = await UserModel.find({ username: req.query.username })
+		response.length !== 0 
+			? res.status(200).send(response)
+			: res.status(404).send({ message: 'Could not find user by username ' + req.query.username })
+	} catch (error) {
+		res.status(500).send({
+			message: 'Error occured while trying to retrieve user by username: ' + req.params.userId,
+			error: error.message
+		})
+	}
+}
+
 export default {
 	createUser,
 	getAllUsers,
-	getUserWithId
+	getUserWithId,
+	getUserWithUsernameQuery
 }
