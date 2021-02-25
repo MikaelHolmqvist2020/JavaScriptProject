@@ -14,8 +14,9 @@ const errorHandeler = (error, request, response, next) => {
 	response.json({
 		statuscode: statuscode,
 		message: error.message,
-		stacktrace: process.env.ENVIROMENT === 'PRODUCTION' ? 'lols' : error.stack,
+		stackTrace: process.env.ENVIROMENT === 'PRODUCTION' ? 'This Trace is BLOCKED in PRODUCTION ENVIROMENT!' : error.stack
 	})
+	next(error)
 }
 
 export default {

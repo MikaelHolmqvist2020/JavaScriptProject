@@ -6,7 +6,7 @@ dotenv.config()
 const connectToDatabase = async () => {
 	try {
 		const DB_URL = process.env.DATABASE_URL
-		await mongoose.connect(DB_URL, { useNewUrlParser: true, useUndifinedTopology: true })
+		await mongoose.connect(DB_URL, { useNewUrlParser: true, useUndifinedTopology: true, useCreateIndex: true })
 		console.log('SUCCEFULLY CONNECTED TO THE DATABASE!')
 	} catch(error) {
 		console.log('ERROR WHILE TRYING TO CONNECT TO THE DATABASE: ', error)
