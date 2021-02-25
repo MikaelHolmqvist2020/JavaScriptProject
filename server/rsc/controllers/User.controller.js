@@ -49,9 +49,26 @@ const getUserWithUsernameQuery = async (req, res) => {
 	}
 }
 
+const updateUser = async (req, res) => {
+	try {
+		if(!req.body) { return res.status(400).send({ message: 'cannot update empty values'}) }
+		const response = await UserModel.findByIdAndUpdate(req.params.userId, {
+			username: req.body.username,
+			password: req.body.password
+		}, { new: true })
+		res.status(200).send(response)
+	} catch (error) {
+		res.status(500).send({
+			message: 'Error occured while trying to update values of the user with ID ' + req.params.userId,
+			error: error.message
+		})
+	}
+}
+
 export default {
 	createUser,
 	getAllUsers,
 	getUserWithId,
-	getUserWithUsernameQuery
+	getUserWithUsernameQuery,
+	updateUser
 }
