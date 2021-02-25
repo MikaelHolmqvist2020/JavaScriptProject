@@ -1,20 +1,42 @@
 import UserModel from '../models/User_model.js'
 
-const createUser = async (request, response) => {
-
+const createUser = async (req, res) => {
 	const user = new UserModel({
-		username: request.body.username,
-		password: request.body.password
+		username: req.body.username,
+		password: req.body.password
 	})
 
 	try {
 		const response = await user.save()
-		response.status(201).send(response)
+		res.status(201).send(response)
 	} catch (error) {
-		response.status(500).send({ message: error.message })
+		res.status(500).send({ message: error.message })
+	}
+}
+
+const getAllUsers = async (req, res) => {
+	try {
+		const response = await UserModel.find()
+		res.status(200).send(response)
+	} catch (error) {
+		res.status(500).send({ message: error.message })
+	}
+}
+
+const getUserWithId = async (req, res) => {
+	try {
+		const response = await UserModel.findById(req.params.userId)
+		res.status(200).send(response)
+	} catch (error) {
+		res.status(500).send({
+			message: 'Error occured while trying to retrieve user by ID: ' + req.params.userId,
+			error: error.message
+		})
 	}
 }
 
 export default {
-	createUser
+	createUser,
+	getAllUsers,
+	getUserWithId
 }
