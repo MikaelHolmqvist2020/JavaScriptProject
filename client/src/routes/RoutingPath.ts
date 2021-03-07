@@ -4,6 +4,7 @@ const kontaktView = '/kontakt'
 const nyheterView = '/nyheter'
 const omView = '/om'
 const signInView = '/signin'
+const createNewUserView = '/createuser'
 
 /* Authenticated routes below */
 const settingsView = '/user/settings'
@@ -22,7 +23,8 @@ export default {
   nyheterView,
   omView,
   signInView,
+  createNewUserView,
   settingsView,
   profileView,
-  pokemonDetailView
+  pokemonDetailView,
 }

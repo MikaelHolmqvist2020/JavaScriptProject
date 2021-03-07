@@ -11,6 +11,7 @@ import { ProfileView } from '../view/authenticatedview/ProfileView'
 import { UserContext } from '../shared/provider/UserProvider'
 import React, { useEffect, useContext } from 'react'
 import { PokemonDetailView } from '../view/PokemonDetailView'
+import { CreateNewUserView } from '../view/CreateNewUserView'
 
 export const Routes = (props: { children: React.ReactChild }) => {
   const [authUser, setAuthUser] = useContext(UserContext)
@@ -28,7 +29,7 @@ export const Routes = (props: { children: React.ReactChild }) => {
     if (localStorage.getItem('user')) {
       setAuthUser({ username: localStorage.getItem('user') })
     }
-  }, [])
+  }, [setAuthUser])
   
   return (
     <BrowserRouter>
@@ -39,6 +40,7 @@ export const Routes = (props: { children: React.ReactChild }) => {
             <Route exact path={RoutingPath.kontaktView} component={KontaktView} />
             <Route exact path={RoutingPath.nyheterView} component={NyheterView} />
             <Route exact path={RoutingPath.omView} component={OmView} />
+            <Route exact path={RoutingPath.createNewUserView} component={CreateNewUserView} />
             <Route exact path={RoutingPath.signInView} component={blockRouteIfAuthenticated(SignInView, HomeView)} />
             <Route exact path={RoutingPath.settingsView} component={authenticationRequired(SettingsView, SignInView)} />
             <Route exact path={RoutingPath.profileView} component={authenticationRequired(ProfileView, SignInView)} />

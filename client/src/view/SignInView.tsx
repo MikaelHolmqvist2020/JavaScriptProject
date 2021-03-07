@@ -26,7 +26,8 @@ export const SignInView = () => {
         <input
           placeholder='password'
           onChange={event => setLoginCredentials({ ...loginCredentials, password: event.target.value })} />
-        <button onClick={() => signIn()}>Sign in</button>
+        <button onClick={() => signIn()}>Sign in</button><br />
+        <button onClick={() => history.push(RoutingPath.createNewUserView)}>Skapa ny användare</button>
       </form>
     </div>
   )

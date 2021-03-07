@@ -35,37 +35,37 @@ const getUserWithId = async (req, res) => {
 		res.status(StatusCode.OK).send(databaseResponse)
 	} catch (error) {
 		res.status(StatusCode.INTERNAL_SERVICE_ERROR).send({
-			message: 'Error occured while trying to retrieve user by ID: ' + req.params.userId,
+			message: `Error occured while trying to retrieve user by ID: ${req.params.userId}`,
 			error: error.message
 		})
 	}
 }
 
-const getUserWithUsernameQuery = async (req, res) => {
+const queryUsername = async (req, res) => {
 	try {
 		const databaseResponse = await UserModel.find({ username: req.query.username })
-		res.length !== 0 
-			? res.status(StatusCode.OK).send(databaseResponse)
-			: res.status(StatusCode.NOT_FOUND).send({ message: 'Could not find user by username ' + req.query.username })
+		res.status(StatusCode.OK).send(databaseResponse)	
 	} catch (error) {
 		res.status(StatusCode.INTERNAL_SERVICE_ERROR).send({
-			message: 'Error occured while trying to retrieve user by username: ' + req.params.userId,
+			message: `Error occured while trying to retrieve user by username: ${req.query.username}`,
 			error: error.message
 		})
 	}
 }
 
 const updateUser = async (req, res) => {
+	const userId = req.params.userId
+	const data = {
+		username: req.body.username,
+		password: req.body.password
+	}
+
 	try {
-		if(!req.body) { return res.status(StatusCode.BAD_REQUEST).send({ message: 'cannot update empty values'}) }
-		const databaseResponse = await UserModel.findByIdAndUpdate(req.params.userId, {
-			username: req.body.username,
-			password: req.body.password
-		}, { new: true })
+		const databaseResponse = await UserModel.findByIdAndUpdate(userId, data, { new: true })
 		res.status(StatusCode.OK).send(databaseResponse)
 	} catch (error) {
 		res.status(StatusCode.INTERNAL_SERVICE_ERROR).send({
-			message: 'Error occured while trying to update values of the user with ID ' + req.params.userId,
+			message: `Error occured while trying to update values of the user with ID ${userId}`,
 			error: error.message
 		})
 	}
@@ -73,13 +73,12 @@ const updateUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
 	try {
-		const databaseResponse = await UserModel.findByIdAndDelete(req.params.userId)
-		res.status(StatusCode.OK).send({
-			message: `Succesfully deleted the USER with username: ${res.username} and ID: ${req.params.userId}`
-		})
+		const userId = req.params.userId
+		const databaseResponse = await UserModel.findByIdAndDelete(userId)
+		res.status(StatusCode.OK).send({ message: `Succesfully deleted the USER`, data: databaseResponse })
 	} catch (error) {
 		res.status(StatusCode.INTERNAL_SERVICE_ERROR).send({
-			message: 'Error occured while trying to delet USER with ID: ' + req.params.userId,
+			message: `Error occured while trying to delet USER with ID: ${userId}`,
 			error: error.message
 		})
 	}
@@ -89,7 +88,7 @@ export default {
 	createUser,
 	getAllUsers,
 	getUserWithId,
-	getUserWithUsernameQuery,
+	queryUsername,
 	updateUser,
 	deleteUser
 }
