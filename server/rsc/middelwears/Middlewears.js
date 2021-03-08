@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import Statuscode from '../../configurations/StatusCode.js'
+import StatusCode from '../../configurations/StatusCode.js'
 
 dotenv.config()
 const { ENVIROMENT } = process.env

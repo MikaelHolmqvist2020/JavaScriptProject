@@ -18,3 +18,5 @@ application.use(Middlewears.errorHandeler)
 
 Configuration.connectToDatabase()
 Configuration.connectToPort(application)
+
+export default application
