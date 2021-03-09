@@ -9,6 +9,11 @@ Chai.should()
 Chai.use(ChaiHTTP)
 
 const randomString = Math.random().toString(36).substring(7)
+const user = {
+	username: randomString,
+	password: randomString
+}
+const userID = '604229dcbabe392a9440909c'
 
 const testingNonExistingRoute = () => {
 	describe('Testing a route that not exist', () => {
@@ -22,6 +27,25 @@ const testingNonExistingRoute = () => {
 		})
 	})
 }
+
+const createUser = () => {
+	describe('Testing CREATE(POST) method for user etinity', () => {
+		test('Expecting a user to be created', (done) => {
+			Chai.request(application)
+				.post('/user')
+				.send(user)
+				.end((error, response) => {
+					response.should.have.a.status(StatusCode.CREATED)
+					response.body.should.be.a('object')
+					response.body.should.have.property('username').eq(user.username)
+					response.body.should.have.property('password').eq(user.password)
+					done()
+				})
+		})
+	})
+}
+
+
 
 function getAllUsers() {
 	test('Expecting a return of all users in database', done => {
@@ -37,7 +61,6 @@ function getAllUsers() {
 }
 
 const updateUser = () => {
-	const userID = '604229dcbabe392a9440909c'
 	test('Should manipulate data of a current object in the user entinity', done => {
 		Chai.request(application)
 			.put(`/user/${userID}`)
@@ -54,8 +77,32 @@ const updateUser = () => {
 	})
 }
 
+const deleteUser = () => {
+	describe('Testing (DELETE) a user in the database', () => {
+		test('Expecting a user to be deleted', (done) => {
+			Chai.request(application)
+				.delete(`/user/${userID}`)
+				.end((request, response) => {
+					response.should.have.status(StatusCode.OK)
+					done()
+				})
+		})
+	})
+}
+
 describe('TESTING THE USER API ENTINITY', () => {
 	testingNonExistingRoute()
+	createUser()
 	getAllUsers()
 	updateUser()
+	deleteUser()
 })
+
+/*	
+createUser,
+getAllUsers,
+getUserWithId,
+queryUsername,
+updateUser,
+deleteUser 
+*/
