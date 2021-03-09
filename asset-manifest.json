@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/JavaScriptProject.git/static/css/main.e45415a9.chunk.css",
+    "main.js": "/JavaScriptProject.git/static/js/main.bc1d53e5.chunk.js",
+    "main.js.map": "/JavaScriptProject.git/static/js/main.bc1d53e5.chunk.js.map",
+    "runtime-main.js": "/JavaScriptProject.git/static/js/runtime-main.596f6aae.js",
+    "runtime-main.js.map": "/JavaScriptProject.git/static/js/runtime-main.596f6aae.js.map",
+    "static/js/2.a9ff4b97.chunk.js": "/JavaScriptProject.git/static/js/2.a9ff4b97.chunk.js",
+    "static/js/2.a9ff4b97.chunk.js.map": "/JavaScriptProject.git/static/js/2.a9ff4b97.chunk.js.map",
+    "static/js/3.71d2c143.chunk.js": "/JavaScriptProject.git/static/js/3.71d2c143.chunk.js",
+    "static/js/3.71d2c143.chunk.js.map": "/JavaScriptProject.git/static/js/3.71d2c143.chunk.js.map",
+    "index.html": "/JavaScriptProject.git/index.html",
+    "static/css/main.e45415a9.chunk.css.map": "/JavaScriptProject.git/static/css/main.e45415a9.chunk.css.map",
+    "static/js/2.a9ff4b97.chunk.js.LICENSE.txt": "/JavaScriptProject.git/static/js/2.a9ff4b97.chunk.js.LICENSE.txt",
+    "static/media/logotype.d013b874.svg": "/JavaScriptProject.git/static/media/logotype.d013b874.svg",
+    "static/media/pokemonLoadingGif.5dcbd92c.gif": "/JavaScriptProject.git/static/media/pokemonLoadingGif.5dcbd92c.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.596f6aae.js",
+    "static/js/2.a9ff4b97.chunk.js",
+    "static/css/main.e45415a9.chunk.css",
+    "static/js/main.bc1d53e5.chunk.js"
+  ]
+}
